@@ -14,10 +14,16 @@ export class AppComponent {
   private lastPath = '';
 
   constructor(router: Router) {
-    // The router emits a Scroll event after each navigation, once the new page has rendered.
+    // We restore positions ourselves; stop the browser doing its own (it clamps to the old page's height).
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Angular 12 emits Scroll before the new page has rendered, so a deep restore position
+    // would be clamped to the old page's height. Wait one tick so the new page is in place.
     router.events
       .pipe(filter((e): e is Scroll => e instanceof Scroll))
-      .subscribe(e => this.handleScroll(e));
+      .subscribe(e => setTimeout(() => this.handleScroll(e)));
   }
 
   private handleScroll(e: Scroll): void {
