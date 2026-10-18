@@ -2,7 +2,11 @@
 <section class="hero" id="about">
   <div class="container">
     <p class="eyebrow">{{ profile.headline }}</p>
-    <h1 class="hero__title">{{ profile.heroTitle }}</h1>
+    <h1 class="hero__title">
+      <!-- Screen readers get the plain sentence; the animated version is hidden from them. -->
+      <span class="sr-only">{{ profile.heroTitle }}</span>
+      <span aria-hidden="true">{{ titleBefore }}<span class="type-word" *ngIf="hasWord"><span class="type-word__size">{{ word }}</span><span class="type-word__text">{{ typed }}<span class="type-word__caret"></span></span></span>{{ titleAfter }}<span class="hero__stop">{{ titleStop }}</span></span>
+    </h1>
     <p class="hero__intro">{{ profile.intro }}</p>
 
     <p class="work-rights">{{ profile.workRights }}</p>

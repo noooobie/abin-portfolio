@@ -6,10 +6,56 @@
 .hero__title {
   margin-top: 20px;
   max-width: 14ch;
+  font-family: var(--font-hero);
   font-size: clamp(44px, 7vw, 88px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 0.98;
+}
+
+/* Typewriter word. Both layers share one grid cell: the invisible "messy" fixes the
+   width, so the rest of the headline doesn't shift as letters are erased and typed. */
+.type-word {
+  display: inline-grid;
+  white-space: nowrap;
+  margin-right: 0.12em; /* fixed room for the caret, so it never touches "data" */
+}
+
+.type-word__size,
+.type-word__text {
+  grid-area: 1 / 1;
+}
+
+.type-word__size {
+  visibility: hidden;
+}
+
+/* Zero width: the box is always exactly "messy" wide, even when the caret or a scramble
+   is a hair wider, so "data and ..." never nudges sideways. The letters still draw. */
+.type-word__text {
+  width: 0;
+  overflow: visible;
+}
+
+.type-word__caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.82em;
+  margin-left: 0.04em;
+  vertical-align: -0.04em;
+  background: var(--accent);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+/* Plus Jakarta Sans leaves a wide gap before "."; tuck it in. */
+.hero__stop {
+  margin-left: -0.06em;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero__intro {
