@@ -1,0 +1,101 @@
+<!-- 1. Hero -->
+<section class="hero" id="about">
+  <div class="container">
+    <p class="eyebrow">{{ profile.headline }}</p>
+    <h1 class="hero__title">{{ profile.heroTitle }}</h1>
+    <p class="hero__intro">{{ profile.intro }}</p>
+
+    <div class="hero__actions">
+      <a class="btn btn-primary" routerLink="/" fragment="work">See my work</a>
+      <a class="btn btn-secondary" [href]="profile.resumeUrl" download>Download resume <span aria-hidden="true">↓</span></a>
+      <a class="btn btn-accent" [href]="profile.linkedinUrl" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Selected case studies -->
+<section class="section" id="work">
+  <div class="container">
+    <app-section-heading label="Selected case studies"></app-section-heading>
+
+    <div class="card-grid">
+      <app-case-study-card *ngFor="let study of caseStudies" [study]="study"></app-case-study-card>
+    </div>
+
+    <a class="more-link" routerLink="/other-work">
+      <span>
+        <span class="more-link__title">Other work</span>
+        <span class="more-link__desc"> · Freelance websites and side projects</span>
+      </span>
+      <span class="more-link__arrow">See all <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- 3. Experience + Toolkit -->
+<section class="section" id="experience">
+  <div class="container split">
+    <div>
+      <app-section-heading label="Experience"></app-section-heading>
+
+      <ol class="timeline">
+        <li *ngFor="let job of experience">
+          <span class="timeline__dates">{{ job.dates }}</span>
+          <div>
+            <h3 class="timeline__role">{{ job.role }}</h3>
+            <p class="timeline__org">{{ job.organisation }}<ng-container *ngIf="job.location">, {{ job.location }}</ng-container></p>
+            <ul class="timeline__highlights">
+              <li *ngFor="let point of job.highlights">{{ point }}</li>
+            </ul>
+            <ul class="tags" *ngIf="job.tools?.length" aria-label="Tools used">
+              <li *ngFor="let tool of job.tools">{{ tool }}</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="sub-label">Education</h3>
+      <ol class="timeline">
+        <li *ngFor="let ed of education">
+          <span class="timeline__dates">{{ ed.dates }}</span>
+          <div>
+            <h3 class="timeline__role">{{ ed.qualification }}</h3>
+            <p class="timeline__org">{{ ed.institution }}</p>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="sub-label">Certification</h3>
+      <ol class="timeline">
+        <li *ngFor="let cert of certifications">
+          <span class="timeline__dates">{{ cert.dates }}</span>
+          <div>
+            <h3 class="timeline__role">{{ cert.name }}</h3>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="sub-label">Leadership &amp; community</h3>
+      <ol class="timeline">
+        <li *ngFor="let item of involvement">
+          <span class="timeline__dates">{{ item.dates }}</span>
+          <div>
+            <h3 class="timeline__role">{{ item.role }}</h3>
+            <p class="timeline__org">{{ item.organisation }}</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div>
+      <app-section-heading label="Toolkit"></app-section-heading>
+
+      <div class="toolkit-group" *ngFor="let group of skillGroups">
+        <h3 class="toolkit-group__label">{{ group.label }}</h3>
+        <ul class="pills">
+          <li *ngFor="let skill of group.skills">{{ skill }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

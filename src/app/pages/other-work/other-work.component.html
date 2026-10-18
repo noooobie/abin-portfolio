@@ -1,0 +1,29 @@
+<header class="container page-head">
+  <p class="eyebrow">Beyond the case studies</p>
+  <h1 class="page-head__title">Other work</h1>
+  <p class="page-head__intro">Freelance websites and personal projects, mostly built in Angular.</p>
+</header>
+
+<section class="container">
+  <div class="card-grid card-grid--fill">
+    <article class="project" *ngFor="let project of projects">
+      <div class="project__image" [class.project__image--empty]="!project.image">
+        <img *ngIf="project.image; else noShot" [src]="project.image" [alt]="project.imageAlt || ''" loading="lazy">
+        <ng-template #noShot><span>[App screenshot]</span></ng-template>
+      </div>
+      <p class="eyebrow">{{ project.dates }}</p>
+      <h3 class="project__title">{{ project.title }}</h3>
+      <p class="project__desc">{{ project.description }}</p>
+      <ul class="tags" aria-label="Tools used">
+        <li *ngFor="let tool of project.tools">{{ tool }}</li>
+      </ul>
+      <div class="project__links" *ngIf="project.links?.length">
+        <a *ngFor="let link of project.links" [href]="link.url" target="_blank" rel="noopener">
+          {{ link.label }} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <a class="back" routerLink="/" fragment="work"><span aria-hidden="true">←</span> Back to all work</a>
+</section>

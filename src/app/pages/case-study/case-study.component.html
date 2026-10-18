@@ -1,0 +1,110 @@
+<article *ngIf="study; else notFound">
+  <!-- Title, tools, dates -->
+  <header class="cs-hero container">
+    <p class="eyebrow">{{ study.eyebrow }}</p>
+    <h1 class="cs-hero__title">{{ study.title }}</h1>
+    <p class="cs-hero__summary">{{ study.summary }}</p>
+
+    <div class="cs-hero__meta">
+      <ul class="pills" aria-label="Tools">
+        <li *ngFor="let tool of study.tools">{{ tool }}</li>
+      </ul>
+      <span class="cs-hero__dates">{{ study.dates }}</span>
+    </div>
+  </header>
+
+  <!-- Problem / Role / Data -->
+  <section class="band">
+    <div class="container facts">
+      <div>
+        <h2 class="section-label">{{ study.problemLabel || 'The problem' }}</h2>
+        <p>{{ study.problem }}</p>
+      </div>
+      <div>
+        <h2 class="section-label">My role</h2>
+        <p>{{ study.role }}</p>
+      </div>
+      <div>
+        <h2 class="section-label">The data</h2>
+        <p>{{ study.data }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach + screenshot -->
+  <!-- With a real image, stack it full width below the list so a detailed diagram stays readable. -->
+  <section class="section container approach" [class.approach--stacked]="study.images?.length || study.noImage">
+    <div>
+      <app-section-heading [label]="study.approachLabel || 'Approach'"></app-section-heading>
+      <ol class="numbered">
+        <li *ngFor="let step of study.approach; let i = index">
+          <span class="numbered__n">{{ i + 1 | number:'2.0-0' }}</span>
+          <span>{{ step }}</span>
+        </li>
+      </ol>
+    </div>
+
+    <figure class="figure" *ngIf="study.images?.length; else shotPlaceholder">
+      <a [href]="study.images![0]" target="_blank" rel="noopener">
+        <img [src]="study.images![0]" [alt]="study.imageAlt || 'Image from ' + study.title">
+      </a>
+      <figcaption>
+        <p class="figure__caption" *ngIf="study.imageCaption">{{ study.imageCaption }}</p>
+        <a [href]="study.images![0]" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
+      </figcaption>
+    </figure>
+    <ng-template #shotPlaceholder>
+      <figure class="shot" *ngIf="!study.noImage"><span>[Dashboard screenshot]</span></figure>
+    </ng-template>
+  </section>
+
+  <!-- Key insight -->
+  <section class="section container" *ngIf="study.insight">
+    <app-section-heading label="Key insight"></app-section-heading>
+    <blockquote class="insight">{{ study.insight }}</blockquote>
+
+    <dl class="stats" *ngIf="study.stats?.length">
+      <div class="stats__item" *ngFor="let stat of study.stats">
+        <dt>{{ stat.label }}</dt>
+        <dd>{{ stat.value }}</dd>
+      </div>
+    </dl>
+
+    <p class="insight-detail" *ngIf="study.insightDetail">{{ study.insightDetail }}</p>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="section container" *ngIf="study.recommendations?.length">
+    <app-section-heading label="Recommendations"></app-section-heading>
+    <ol class="recs">
+      <li *ngFor="let rec of study.recommendations; let i = index">
+        <span class="recs__n">{{ i + 1 | number:'2.0-0' }}</span>
+        <p>{{ rec }}</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Outcome -->
+  <section class="section container" *ngIf="study.outcome">
+    <app-section-heading label="Outcome"></app-section-heading>
+    <p class="next">{{ study.outcome }}</p>
+  </section>
+
+  <!-- Next steps -->
+  <section class="section container" *ngIf="study.nextSteps">
+    <app-section-heading label="What I'd do next"></app-section-heading>
+    <p class="next">{{ study.nextSteps }}</p>
+  </section>
+
+  <div class="container">
+    <a class="back" routerLink="/" fragment="work"><span aria-hidden="true">←</span> Back to all work</a>
+  </div>
+</article>
+
+<ng-template #notFound>
+  <section class="section container not-found">
+    <h1>Case study not found</h1>
+    <p>That page doesn't exist — it may have moved.</p>
+    <a class="btn btn-primary" routerLink="/" fragment="work">See all work</a>
+  </section>
+</ng-template>

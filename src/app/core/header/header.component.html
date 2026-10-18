@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__name" routerLink="/">{{ profile.name }}</a>
+
+    <nav class="header__nav" aria-label="Main">
+      <a routerLink="/" fragment="work">Work</a>
+      <a routerLink="/" fragment="experience">Experience</a>
+      <a routerLink="/" fragment="about">About</a>
+      <a class="header__resume" [href]="profile.resumeUrl" download>Resume ↓</a>
+    </nav>
+  </div>
+</header>

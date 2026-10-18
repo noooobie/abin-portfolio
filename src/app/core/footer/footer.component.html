@@ -1,0 +1,18 @@
+<footer class="footer" id="contact">
+  <div class="container">
+    <h2 class="footer__title">Let's talk data.</h2>
+
+    <ul class="footer__links">
+      <li>
+        <span class="footer__label">Email</span>
+        <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      </li>
+      <li>
+        <span class="footer__label">LinkedIn</span>
+        <a [href]="profile.linkedinUrl" target="_blank" rel="noopener">{{ profile.linkedinLabel }}</a>
+      </li>
+    </ul>
+
+    <p class="footer__small">© {{ year }} {{ profile.name }} · {{ profile.headline }}</p>
+  </div>
+</footer>

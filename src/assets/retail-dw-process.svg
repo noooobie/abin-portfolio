@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1210" width="1600" height="1210" role="img" aria-labelledby="t d">
+<title id="t">How I built the Fresh Harvest retail data warehouse</title>
+<desc id="d">Six steps: understand the problem, extract and stage the sources, design the dimensional model, build the ETL pipelines in Pentaho, enrich and verify with SQL, analyse and recommend.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E4BE0"/></marker></defs>
+<rect width="1600" height="1210" fill="#FAFAF8"/>
+<text x="52" y="92" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="1.6" fill="#2E4BE0">RETAIL POS &amp; ERP · DATA WAREHOUSE · MYSQL + PENTAHO</text>
+<text x="52" y="150" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="50" font-weight="800" letter-spacing="-1" fill="#18181B">From two disconnected systems to one source of truth</text>
+<text x="52" y="196" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="22" fill="#3F3F46">How I integrated a retailer’s point-of-sale and ERP data into a dimensional warehouse, then used it to answer 5 management questions.</text>
+<line x1="508" y1="436.0" x2="566" y2="436.0" stroke="#2E4BE0" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="1032" y1="436.0" x2="1090" y2="436.0" stroke="#2E4BE0" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M1324.0,628 L1324.0,670.0 L276.0,670.0 L276.0,710" fill="none" stroke="#2E4BE0" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ah)"/>
+<line x1="508" y1="904.0" x2="566" y2="904.0" stroke="#2E4BE0" stroke-width="2.5" marker-end="url(#ah)"/>
+<line x1="1032" y1="904.0" x2="1090" y2="904.0" stroke="#2E4BE0" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="52" y="250" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="96" cy="298" r="22" fill="#2E4BE0"/>
+<text x="96" y="306" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">1</text>
+<rect x="379.2" y="283" width="96.8" height="30" rx="15" fill="#E8EBFB"/>
+<text x="427.6" y="303" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">Strategy</text>
+<text x="80" y="364" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Understand the problem</text>
+<circle cx="85" cy="398" r="3.2" fill="#18181B"/>
+<text x="98" y="404" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Till Point POS (sales) and Meridian ERP (cost,</text>
+<text x="98" y="429" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">suppliers, stock) had never been integrated</text>
+<text x="98" y="454" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">and shared no product key.</text>
+<circle cx="85" cy="483" r="3.2" fill="#18181B"/>
+<text x="98" y="489" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Mapped 5 management questions and a Data</text>
+<text x="98" y="514" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Strategy Canvas.</text>
+<rect x="576" y="250" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="620" cy="298" r="22" fill="#2E4BE0"/>
+<text x="620" y="306" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">2</text>
+<rect x="860.2" y="283" width="139.8" height="30" rx="15" fill="#E8EBFB"/>
+<text x="930.1" y="303" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">Pentaho · CSV</text>
+<text x="604" y="364" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Extract &amp; stage the sources</text>
+<circle cx="609" cy="398" r="3.2" fill="#18181B"/>
+<text x="622" y="404" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Loaded POS and ERP extracts (sales header &amp;</text>
+<text x="622" y="429" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">lines, products, price history, stores,</text>
+<text x="622" y="454" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">customers, address history, suppliers,</text>
+<text x="622" y="479" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">purchase orders) into a staging layer.</text>
+<circle cx="609" cy="508" r="3.2" fill="#18181B"/>
+<text x="622" y="514" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Matched the systems on SKU and store ID.</text>
+<rect x="1100" y="250" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="1144" cy="298" r="22" fill="#2E4BE0"/>
+<text x="1144" y="306" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">3</text>
+<rect x="1453.0" y="283" width="71.0" height="30" rx="15" fill="#E8EBFB"/>
+<text x="1488.5" y="303" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">MySQL</text>
+<text x="1128" y="364" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Design the dimensional model</text>
+<circle cx="1133" cy="398" r="3.2" fill="#18181B"/>
+<text x="1146" y="404" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Grain: one sales line item.</text>
+<circle cx="1133" cy="433" r="3.2" fill="#18181B"/>
+<text x="1146" y="439" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Fact constellation: sales, purchase orders,</text>
+<text x="1146" y="464" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">inventory, sharing conformed Date, Product,</text>
+<text x="1146" y="489" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Customer, Store and Supplier dimensions.</text>
+<circle cx="1133" cy="518" r="3.2" fill="#18181B"/>
+<text x="1146" y="524" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">SCD Type 2 on Customer, Store, Product; Type 1</text>
+<text x="1146" y="549" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">on Supplier.</text>
+<rect x="52" y="718" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="96" cy="766" r="22" fill="#2E4BE0"/>
+<text x="96" y="774" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">4</text>
+<rect x="241.60000000000002" y="751" width="234.39999999999998" height="30" rx="15" fill="#E8EBFB"/>
+<text x="358.8" y="771" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">Pentaho Data Integration</text>
+<text x="80" y="832" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Build the ETL pipelines</text>
+<circle cx="85" cy="866" r="3.2" fill="#18181B"/>
+<text x="98" y="872" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">One transformation per table: dimensions</text>
+<text x="98" y="897" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">first, fact last.</text>
+<circle cx="85" cy="926" r="3.2" fill="#18181B"/>
+<text x="98" y="932" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Dimension lookup/update steps handle SCD</text>
+<text x="98" y="957" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">versions; database lookups resolve surrogate</text>
+<text x="98" y="982" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">keys.</text>
+<circle cx="85" cy="1011" r="3.2" fill="#18181B"/>
+<text x="98" y="1017" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Computed sales, cost and margin; caught a</text>
+<text x="98" y="1042" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">duplicate SKU on load.</text>
+<rect x="576" y="718" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="620" cy="766" r="22" fill="#2E4BE0"/>
+<text x="620" y="774" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">5</text>
+<rect x="946.2" y="751" width="53.8" height="30" rx="15" fill="#E8EBFB"/>
+<text x="973.1" y="771" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">SQL</text>
+<text x="604" y="832" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Enrich &amp; verify</text>
+<circle cx="609" cy="866" r="3.2" fill="#18181B"/>
+<text x="622" y="872" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Backfilled address history: 58 customers who</text>
+<text x="622" y="897" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">moved got dated versions.</text>
+<circle cx="609" cy="926" r="3.2" fill="#18181B"/>
+<text x="622" y="932" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Flagged 24 public holidays and staged 36 cold-</text>
+<text x="622" y="957" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">chain invoices.</text>
+<circle cx="609" cy="986" r="3.2" fill="#18181B"/>
+<text x="622" y="992" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Checked row counts: 60,693 fact rows, 150</text>
+<text x="622" y="1017" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">products, 44 stores.</text>
+<rect x="1100" y="718" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
+<circle cx="1144" cy="766" r="22" fill="#2E4BE0"/>
+<text x="1144" y="774" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">6</text>
+<rect x="1401.4" y="751" width="122.6" height="30" rx="15" fill="#E8EBFB"/>
+<text x="1462.7" y="771" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#2E4BE0">SQL queries</text>
+<text x="1128" y="832" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3" fill="#18181B">Analyse &amp; recommend</text>
+<circle cx="1133" cy="866" r="3.2" fill="#18181B"/>
+<text x="1146" y="872" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Metro stores earned ~$365K margin vs $167K</text>
+<text x="1146" y="897" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Regional and $56K Rural.</text>
+<circle cx="1133" cy="926" r="3.2" fill="#18181B"/>
+<text x="1146" y="932" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Loyalty tier did not predict profitability.</text>
+<circle cx="1133" cy="961" r="3.2" fill="#18181B"/>
+<text x="1146" y="967" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Perishables looked profitable (+$260K) but</text>
+<text x="1146" y="992" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">lost ~$1.25M after cold-chain costs.</text>
+<line x1="52" y1="1126" x2="1548" y2="1126" stroke="#18181B" stroke-width="2"/>
+<text x="52" y="1160" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" letter-spacing="1.4" fill="#71717A">TOOLS</text>
+<text x="132" y="1160" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="19" fill="#18181B">MySQL · Pentaho Data Integration · SQL · MySQL Workbench · star schema · SCD Type 2</text>
+<text x="1548" y="1160" text-anchor="end" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#71717A">Deakin University · MIS774 group project · 2026</text>
+</svg>

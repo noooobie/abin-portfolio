@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* .section-label (global) sets the type; reset the h2 defaults here. */
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
