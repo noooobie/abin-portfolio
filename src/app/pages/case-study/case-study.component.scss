@@ -178,6 +178,36 @@
     color: var(--muted);
   }
 
+  .figure__hint {
+    display: none;
+    margin-bottom: 6px;
+    color: var(--accent);
+  }
+}
+
+.figure__scroll {
+  border-radius: 16px;
+}
+
+/* Phones: keep wide diagrams legible and let them scroll sideways. */
+@media (max-width: 600px) {
+  .figure__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--line);
+
+    img {
+      width: 760px;
+      max-width: none;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+
+  .figure .figure__hint {
+    display: block;
+  }
+
   a {
     text-decoration: none;
   }

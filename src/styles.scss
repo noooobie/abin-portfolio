@@ -133,6 +133,14 @@ a {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
+/* Tighter buttons on phones so two fit per row instead of one each. */
+@media (max-width: 480px) {
+  .btn {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+
 .btn-primary {
   background: var(--ink);
   color: var(--bg);

@@ -45,10 +45,14 @@
     </div>
 
     <figure class="figure" *ngIf="study.images?.length; else shotPlaceholder">
-      <a [href]="study.images![0]" target="_blank" rel="noopener">
-        <img [src]="study.images![0]" [alt]="study.imageAlt || 'Image from ' + study.title">
-      </a>
+      <!-- On phones the image keeps a readable width and scrolls sideways inside this box. -->
+      <div class="figure__scroll" tabindex="0" role="region" [attr.aria-label]="study.title + ' diagram'">
+        <a [href]="study.images![0]" target="_blank" rel="noopener">
+          <img [src]="study.images![0]" [alt]="study.imageAlt || 'Image from ' + study.title">
+        </a>
+      </div>
       <figcaption>
+        <p class="figure__hint" aria-hidden="true">Swipe sideways to explore <span>→</span></p>
         <p class="figure__caption" *ngIf="study.imageCaption">{{ study.imageCaption }}</p>
         <a [href]="study.images![0]" target="_blank" rel="noopener">Open full size <span aria-hidden="true">↗</span></a>
       </figcaption>
