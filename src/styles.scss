@@ -23,8 +23,9 @@
   box-sizing: border-box;
 }
 
+/* No global `scroll-behavior: smooth`: it made "go to top" on page changes animate and
+   get cut short. AppComponent smooth-scrolls only same-page section links instead. */
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -180,10 +181,6 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

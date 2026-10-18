@@ -21,9 +21,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled', // new page -> start at top; back button -> restore position
-      anchorScrolling: 'enabled',           // '/#work' scrolls to the element with id="work"
-      scrollOffset: headerOffset,           // leave room for the sticky header
+      // Scrolling is handled in AppComponent: Angular's built-in version used CSS smooth
+      // scrolling for "go to top", which got cut short when the page changed underneath it.
+      scrollPositionRestoration: 'disabled',
+      anchorScrolling: 'disabled',
       onSameUrlNavigation: 'reload',        // clicking "Work" again re-scrolls even if the URL is unchanged
     }),
   ],
