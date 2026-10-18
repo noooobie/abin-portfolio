@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import { CASE_STUDIES } from '../../data/case-studies';
 import {
-  CERTIFICATIONS, EDUCATION, EXPERIENCE, INVOLVEMENT, PROFILE, SKILL_GROUPS,
+  CERTIFICATIONS, EDUCATION, EXPERIENCE, PROFILE, SKILL_GROUPS,
 } from '../../data/profile';
 
 /** The headline word that gets the typewriter treatment, and the jumbled versions it cycles through. */
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   readonly experience = EXPERIENCE;
   readonly education = EDUCATION;
   readonly certifications = CERTIFICATIONS;
-  readonly involvement = INVOLVEMENT;
   readonly skillGroups = SKILL_GROUPS;
 
   // Headline split around the animated word, e.g. "I turn " + "messy" + " data and ...".

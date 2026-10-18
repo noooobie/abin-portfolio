@@ -1,4 +1,4 @@
-import { Certification, Education, Experience, Involvement, Profile, Project, SkillGroup } from './models';
+import { Certification, Education, Experience, Profile, Project, SkillGroup } from './models';
 
 export const PROFILE: Profile = {
   name: 'Abin Vinod',
@@ -16,6 +16,7 @@ export const PROFILE: Profile = {
   workRights:
     'Currently on a Subclass 500 visa with full working rights, and applying for the Temporary ' +
     'Graduate visa (subclass 485) in January 2027, which would be valid for 3 years.',
+  relocation: 'Open to relocating within Australia, depending on the offer.',
 };
 
 export const EXPERIENCE: Experience[] = [
@@ -120,14 +121,8 @@ export const CERTIFICATIONS: Certification[] = [
   {
     name: 'Microsoft Certified: Power BI Data Analyst Associate (PL-300)',
     dates: 'Jun 2026 - Jun 2027',
+    certificateUrl: 'assets/powerbi-certificate.png',
   },
-];
-
-export const INVOLVEMENT: Involvement[] = [
-  { role: 'Faculty Peer Mentor', organisation: 'Deakin University, Burwood', dates: 'Jan 2026 - Present' },
-  { role: 'Student Member', organisation: 'Australian Computer Society', dates: 'Jan 2026 - Present' },
-  { role: 'Department Chairperson', organisation: 'Christ College of Engineering', dates: '2021 - 2022' },
-  { role: 'Placement Representative', organisation: 'Christ College of Engineering, 2018-22 batch', dates: '2018 - 2022' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [

@@ -64,17 +64,12 @@ export interface Project {
   links?: { label: string; url: string }[];
 }
 
-/** Leadership, volunteering and memberships. */
-export interface Involvement {
-  role: string;
-  organisation: string;
-  dates: string;
-}
-
 /** A certification with its validity period. */
 export interface Certification {
   name: string;
   dates: string;
+  /** Optional link to view the certificate (image or verification page). */
+  certificateUrl?: string;
 }
 
 /** A qualification in the Education list. */
@@ -102,4 +97,6 @@ export interface Profile {
   resumeUrl: string;
   /** Visa / work-rights line shown under the hero intro. */
   workRights: string;
+  /** Relocation note shown right after the visa line. */
+  relocation: string;
 }
