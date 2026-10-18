@@ -7,14 +7,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Donor retention analysis',
     heroImage: 'assets/donor-retention-method.svg',
     summary: 'Diagnosing why almost a third of donors gave once and never came back.',
-    dates: 'Mar – May 2026',
+    dates: 'Mar - May 2026',
     tools: ['Power BI', 'DAX', 'Python', 'Excel', 'PowerPoint'],
     problem:
       'How can World Vision Australia turn more one-off donors into repeat donors? ' +
       'Almost a third of supporters gave once and never again.',
     role: 'Owned data modelling, DAX development and analytical storytelling on the project team.',
     data:
-      'Six integrated datasets — supporter demographics, one-off donations, ongoing commitments, ' +
+      'Six integrated datasets - supporter demographics, one-off donations, ongoing commitments, ' +
       'communications sent, communication clicks and portal engagement. Over 61,000 supporters and ' +
       'more than 3 million records in all.',
     approach: [
@@ -27,9 +27,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     insight: 'More than 95% of one-time donors never received a single email or SMS after their first gift.',
     insightDetail:
-      'Donors weren\'t losing interest — they were never contacted. Nearly everyone who heard from ' +
+      'Donors weren\'t losing interest - they were never contacted. Nearly everyone who heard from ' +
       'World Vision gave again, compared with fewer than half of those who didn\'t. Outreach dropped ' +
-      'sharply after 2020, just as crisis appeals for COVID, Ukraine and the Turkey–Syria earthquake ' +
+      'sharply after 2020, just as crisis appeals for COVID, Ukraine and the Turkey-Syria earthquake ' +
       'brought in a wave of new donors. The retention problem is operational, not behavioural.',
     stats: [
       { value: '1 in 3', label: 'supporters gave once and never again' },
@@ -64,7 +64,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Integrating POS & ERP System',
     heroImage: 'assets/retail-dw-star-schema.svg',
     summary: '95,000+ records from 13 sources into a dimensional model with full history.',
-    dates: 'Jun – Sep 2026',
+    dates: 'Jun - Sep 2026',
     tools: ['Pentaho Data Integration', 'MySQL', 'MySQL Workbench', 'PowerPoint'],
     problem:
       'Fresh Harvest Retail Group ran two systems that had never been integrated: a POS for sales and ' +
@@ -72,8 +72,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       'and every team worked from its own version of the truth.',
     role: 'Responsible for dimensional data modelling, ETL pipeline development and analytical insight on a group project.',
     data:
-      '13 source datasets, 95,000+ records: POS sales, customers and stores; ERP products, suppliers and ' +
-      'purchase orders; plus address history, public holidays and cold-chain invoices.',
+      'POS sales, customers and stores, plus ERP products, suppliers and purchase orders, along with ' +
+      'address history, public holidays and cold-chain invoices. 95,000+ records across 13 source datasets.',
     approach: [
       'Designed a fact constellation: sales, purchase-order and inventory facts sharing conformed date, ' +
         'product, supplier and store dimensions.',
@@ -123,7 +123,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Finding the right customers',
     heroImage: 'assets/techtitans.svg',
     summary: 'Business analysis for a new profitability and intelligence platform for Australian SMEs.',
-    dates: 'Oct 2026 – Present',
+    dates: 'Oct 2026 - Present',
     tools: ['Excel'],
     problemLabel: 'The brief',
     problem:

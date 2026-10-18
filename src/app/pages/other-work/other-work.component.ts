@@ -14,6 +14,6 @@ export class OtherWorkComponent implements OnInit {
   constructor(private title: Title) { }
 
   ngOnInit(): void {
-    this.title.setTitle(`Other work — ${PROFILE.name}`);
+    this.title.setTitle(`Other work - ${PROFILE.name}`);
   }
 }

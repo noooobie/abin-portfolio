@@ -50,8 +50,8 @@
 <text x="1146" y="464" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">inventory, sharing conformed Date, Product,</text>
 <text x="1146" y="489" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Customer, Store and Supplier dimensions.</text>
 <circle cx="1133" cy="518" r="3.2" fill="#18181B"/>
-<text x="1146" y="524" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">SCD Type 2 on Customer, Store, Product; Type 1</text>
-<text x="1146" y="549" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">on Supplier.</text>
+<text x="1146" y="524" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">SCD Type 2 on Customer, Store and Product,</text>
+<text x="1146" y="549" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Type 1 on Supplier.</text>
 <rect x="52" y="718" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
 <circle cx="96" cy="766" r="22" fill="#2E4BE0"/>
 <text x="96" y="774" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">4</text>
@@ -63,11 +63,11 @@
 <text x="98" y="897" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">first, fact last.</text>
 <circle cx="85" cy="926" r="3.2" fill="#18181B"/>
 <text x="98" y="932" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Dimension lookup/update steps handle SCD</text>
-<text x="98" y="957" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">versions; database lookups resolve surrogate</text>
-<text x="98" y="982" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">keys.</text>
+<text x="98" y="957" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">versions, and database lookups resolve</text>
+<text x="98" y="982" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">surrogate keys.</text>
 <circle cx="85" cy="1011" r="3.2" fill="#18181B"/>
-<text x="98" y="1017" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Computed sales, cost and margin; caught a</text>
-<text x="98" y="1042" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">duplicate SKU on load.</text>
+<text x="98" y="1017" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">Computed sales, cost and margin, and caught</text>
+<text x="98" y="1042" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="18" fill="#3F3F46">a duplicate SKU on load.</text>
 <rect x="576" y="718" width="448" height="372" rx="10" fill="#FFFFFF" stroke="#E4E4E0" stroke-width="1.5"/>
 <circle cx="620" cy="766" r="22" fill="#2E4BE0"/>
 <text x="620" y="774" text-anchor="middle" font-family="'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#FFFFFF">5</text>

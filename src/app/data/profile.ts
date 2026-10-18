@@ -23,7 +23,7 @@ export const EXPERIENCE: Experience[] = [
     role: 'Business Analyst Intern',
     organisation: 'TechTitans Software Solutions',
     location: 'Melbourne',
-    dates: 'Oct 2026 – Present',
+    dates: 'Oct 2026 - Present',
     highlights: [
       'Market research and competitor and pricing analysis to inform product positioning in the ' +
         'Australian SME software market.',
@@ -47,7 +47,7 @@ export const EXPERIENCE: Experience[] = [
   {
     role: 'Business Analyst / Developer',
     organisation: 'Tata Consultancy Services',
-    dates: 'Jun 2023 – Oct 2024',
+    dates: 'Jun 2023 - Oct 2024',
     highlights: [
       'Main liaison between the client, project manager, developers and QA testers, keeping ' +
         'requirements and priorities aligned across the team.',
@@ -62,12 +62,12 @@ export const EXPERIENCE: Experience[] = [
   {
     role: 'IT Support Intern',
     organisation: 'Edentu Dental App',
-    dates: 'Aug 2022 – May 2023',
+    dates: 'Aug 2022 - May 2023',
     highlights: [
       'Administered the app admin interface and sales app, and supported the design and rollout of ' +
         'educational software features.',
-      'Ran daily scrum calls to track progress, surface blockers and align the team; scheduled daily ' +
-        'tasks and tracked timelines to keep milestones on schedule.',
+      'Ran daily scrum calls to track progress, surface blockers and align the team, and scheduled ' +
+        'daily tasks and tracked timelines to keep milestones on schedule.',
     ],
     tools: ['Notion', 'Slack', 'Edtech admin console'],
   },
@@ -75,7 +75,7 @@ export const EXPERIENCE: Experience[] = [
 
 export const OTHER_WORK: Project[] = [
   {
-    title: 'flicke — QA services website',
+    title: 'flicke - QA services website',
     description: 'A client website built from scratch in Angular for a software testing and QA service.',
     dates: '2024 · Freelance',
     tools: ['Angular', 'TypeScript'],
@@ -107,27 +107,27 @@ export const EDUCATION: Education[] = [
   {
     qualification: 'Master of Business Analytics',
     institution: 'Deakin University, Burwood',
-    dates: 'Feb 2025 – Oct 2026',
+    dates: 'Feb 2025 - Oct 2026',
   },
   {
     qualification: 'Bachelor of Engineering (Electronics & Communication), CGPA 7.8',
     institution: 'Christ College of Engineering, Irinjalakuda',
-    dates: 'Aug 2018 – Jul 2022',
+    dates: 'Aug 2018 - Jul 2022',
   },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
   {
     name: 'Microsoft Certified: Power BI Data Analyst Associate (PL-300)',
-    dates: 'Jun 2026 – Jun 2027',
+    dates: 'Jun 2026 - Jun 2027',
   },
 ];
 
 export const INVOLVEMENT: Involvement[] = [
-  { role: 'Faculty Peer Mentor', organisation: 'Deakin University, Burwood', dates: 'Jan 2026 – Present' },
-  { role: 'Student Member', organisation: 'Australian Computer Society', dates: 'Jan 2026 – Present' },
-  { role: 'Department Chairperson', organisation: 'Christ College of Engineering', dates: '2021 – 2022' },
-  { role: 'Placement Representative', organisation: 'Christ College of Engineering, 2018–22 batch', dates: '2018 – 2022' },
+  { role: 'Faculty Peer Mentor', organisation: 'Deakin University, Burwood', dates: 'Jan 2026 - Present' },
+  { role: 'Student Member', organisation: 'Australian Computer Society', dates: 'Jan 2026 - Present' },
+  { role: 'Department Chairperson', organisation: 'Christ College of Engineering', dates: '2021 - 2022' },
+  { role: 'Placement Representative', organisation: 'Christ College of Engineering, 2018-22 batch', dates: '2018 - 2022' },
 ];
 
 export const SKILL_GROUPS: SkillGroup[] = [

@@ -20,7 +20,7 @@ export class CaseStudyComponent implements OnInit {
     // Subscribe (rather than read once) so moving between case studies updates the page.
     this.route.paramMap.subscribe(params => {
       this.study = findCaseStudy(params.get('slug'));
-      this.title.setTitle(this.study ? `${this.study.title} — ${PROFILE.name}` : PROFILE.name);
+      this.title.setTitle(this.study ? `${this.study.title} - ${PROFILE.name}` : PROFILE.name);
     });
   }
 }

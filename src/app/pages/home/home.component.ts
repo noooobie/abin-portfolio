@@ -24,6 +24,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Other pages change the tab title, so set it back when returning home.
-    this.title.setTitle(`${PROFILE.name} — Data & Business Analyst`);
+    this.title.setTitle(`${PROFILE.name} - Data & Business Analyst`);
   }
 }
