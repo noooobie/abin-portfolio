@@ -1,12 +1,25 @@
-<header class="header">
+<header class="header" [class.header--open]="menuOpen">
   <div class="container header__inner">
-    <a class="header__name" routerLink="/">{{ profile.name }}</a>
+    <a class="header__name" routerLink="/" (click)="closeMenu()">{{ profile.name }}</a>
 
-    <nav class="header__nav" aria-label="Main">
-      <a routerLink="/" fragment="work">Work</a>
-      <a routerLink="/" fragment="experience">Experience</a>
-      <a routerLink="/" fragment="about">About</a>
-      <a class="header__resume" [href]="profile.resumeUrl" download>Resume ↓</a>
+    <!-- Only visible on small screens (see SCSS); toggles the nav below. -->
+    <button
+      type="button"
+      class="header__toggle"
+      aria-controls="main-nav"
+      [attr.aria-expanded]="menuOpen"
+      [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()">
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+    </button>
+
+    <nav class="header__nav" id="main-nav" aria-label="Main">
+      <a routerLink="/" fragment="work" (click)="closeMenu()">Work</a>
+      <a routerLink="/" fragment="experience" (click)="closeMenu()">Experience</a>
+      <a routerLink="/" fragment="about" (click)="closeMenu()">About</a>
+      <a class="header__resume" [href]="profile.resumeUrl" download (click)="closeMenu()">Resume ↓</a>
     </nav>
   </div>
 </header>

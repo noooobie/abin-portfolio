@@ -46,23 +46,73 @@ a {
   color: var(--accent) !important;
 }
 
-/* Phones: name on one row, nav below, with taller links that are easier to tap. */
-@media (max-width: 480px) {
+/* Hamburger button: hidden on wide screens. */
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.header__toggle-bar {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Phones: name + hamburger on one row; the nav opens as a vertical list below. */
+@media (max-width: 600px) {
   .header__inner {
-    gap: 0 24px;
-    min-height: 0;
-    padding-top: 10px;
-    padding-bottom: 2px;
+    min-height: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .header__toggle {
+    display: flex;
   }
 
   .header__nav {
+    display: none;
     width: 100%;
-    justify-content: space-between;
-    gap: 0 12px;
-    font-size: 15px;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 8px;
+    font-size: 18px;
 
     a {
-      padding: 10px 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+  }
+
+  .header--open {
+    .header__nav {
+      display: flex;
+    }
+
+    /* Bars morph into an X while open. */
+    .header__toggle-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .header__toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__toggle-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
   }
 }
