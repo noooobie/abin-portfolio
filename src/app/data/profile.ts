@@ -99,9 +99,7 @@ export const OTHER_WORK: Project[] = [
       {
         label: 'Demo video',
         url: 'https://www.linkedin.com/posts/abin-vinod_vibe-analyst-developer-activity-7452676196879785984-Evh2',
-      },
-      { label: 'GitHub', url: 'https://github.com/noooobie/Expense-App' },
-    ],
+      },    ],
   },
 ];
 
