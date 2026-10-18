@@ -5,10 +5,7 @@
     <h1 class="hero__title">{{ profile.heroTitle }}</h1>
     <p class="hero__intro">{{ profile.intro }}</p>
 
-    <p class="work-rights">
-      <span class="work-rights__badge"><span aria-hidden="true">✓</span> {{ profile.workRights.headline }}</span>
-      <span class="work-rights__detail">{{ profile.workRights.detail }}</span>
-    </p>
+    <p class="work-rights">{{ profile.workRights }}</p>
 
     <div class="hero__actions">
       <a class="btn btn-primary" routerLink="/" fragment="work">See my work</a>

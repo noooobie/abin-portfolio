@@ -12,12 +12,10 @@ export const PROFILE: Profile = {
   linkedinUrl: 'https://www.linkedin.com/in/abin-vinod',
   linkedinLabel: 'linkedin.com/in/abin-vinod',
   resumeUrl: 'assets/Abin_Vinod_Resume.pdf',
-  // Update `detail` once the 485 application is lodged (e.g. "485 application lodged, February 2027").
-  workRights: {
-    headline: 'No visa sponsorship needed',
-    detail:
-      'Applying for the Temporary Graduate visa (subclass 485) in January 2027, which has full work rights.',
-  },
+  // Update once the 485 application is lodged.
+  workRights:
+    'Currently on a Subclass 500 visa with full working rights, and applying for the Temporary ' +
+    'Graduate visa (subclass 485) in January 2027, which would be valid for 3 years.',
 };
 
 export const EXPERIENCE: Experience[] = [

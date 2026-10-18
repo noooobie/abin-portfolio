@@ -100,9 +100,6 @@ export interface Profile {
   linkedinUrl: string;
   linkedinLabel: string;
   resumeUrl: string;
-  /** Work-rights note shown in the hero and footer, so recruiters know sponsorship isn't needed. */
-  workRights: {
-    headline: string;
-    detail: string;
-  };
+  /** Visa / work-rights line shown under the hero intro. */
+  workRights: string;
 }
