@@ -137,6 +137,72 @@
   }
 }
 
+/* ---------- Experience rail (vertical timeline) ---------- */
+.rail {
+  position: relative;
+  margin: 0 0 48px;
+  padding: 0 0 0 32px;
+  list-style: none;
+
+  /* The rail itself: a thin line joining the dots. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 7px;
+    width: 2px;
+    background: var(--line);
+  }
+}
+
+.rail__item {
+  position: relative;
+  padding-bottom: 36px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.rail__dot {
+  position: absolute;
+  top: 3px;
+  left: -32px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+/* Current role: filled dot with a soft halo. */
+.rail__item--current .rail__dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--placeholder);
+}
+
+.rail__dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.rail__now {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .timeline__dates {
   font-family: var(--font-display);
   font-size: 14px;

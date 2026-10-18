@@ -46,6 +46,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private title: Title, private zone: NgZone, private cdr: ChangeDetectorRef) { }
 
+  /** A role is current when its dates run to "Present". */
+  isCurrent(dates: string): boolean {
+    return /present/i.test(dates);
+  }
+
   ngOnInit(): void {
     // Other pages change the tab title, so set it back when returning home.
     this.title.setTitle(`${PROFILE.name} - Data & Business Analyst`);

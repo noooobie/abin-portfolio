@@ -46,19 +46,22 @@
     <div>
       <app-section-heading label="Experience"></app-section-heading>
 
-      <ol class="timeline">
-        <li *ngFor="let job of experience">
-          <span class="timeline__dates">{{ job.dates }}</span>
-          <div>
-            <h3 class="timeline__role">{{ job.role }}</h3>
-            <p class="timeline__org">{{ job.organisation }}<ng-container *ngIf="job.location">, {{ job.location }}</ng-container></p>
-            <ul class="timeline__highlights">
-              <li *ngFor="let point of job.highlights">{{ point }}</li>
-            </ul>
-            <ul class="tags" *ngIf="job.tools?.length" aria-label="Tools used">
-              <li *ngFor="let tool of job.tools">{{ tool }}</li>
-            </ul>
-          </div>
+      <!-- Vertical timeline: a rail with one dot per role; the current role's dot is filled. -->
+      <ol class="rail">
+        <li class="rail__item" *ngFor="let job of experience" [class.rail__item--current]="isCurrent(job.dates)">
+          <span class="rail__dot" aria-hidden="true"></span>
+          <p class="rail__dates">
+            {{ job.dates }}
+            <span class="rail__now" *ngIf="isCurrent(job.dates)">Now</span>
+          </p>
+          <h3 class="timeline__role">{{ job.role }}</h3>
+          <p class="timeline__org">{{ job.organisation }}<ng-container *ngIf="job.location">, {{ job.location }}</ng-container></p>
+          <ul class="timeline__highlights">
+            <li *ngFor="let point of job.highlights">{{ point }}</li>
+          </ul>
+          <ul class="tags" *ngIf="job.tools?.length" aria-label="Tools used">
+            <li *ngFor="let tool of job.tools">{{ tool }}</li>
+          </ul>
         </li>
       </ol>
 
