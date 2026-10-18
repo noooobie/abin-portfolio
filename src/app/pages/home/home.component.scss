@@ -169,6 +169,23 @@
 .more-link__desc {
   color: var(--body-muted);
   font-size: 17px;
+
+  /* Desktop: "Other work · Freelance websites…" on one line. */
+  &::before {
+    content: ' · ';
+  }
+}
+
+/* Phones: description on its own line under the title, no separator. */
+@media (max-width: 600px) {
+  .more-link__desc {
+    display: block;
+    margin-top: 4px;
+
+    &::before {
+      content: none;
+    }
+  }
 }
 
 .more-link__arrow {
