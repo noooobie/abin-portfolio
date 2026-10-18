@@ -2,7 +2,7 @@ import { Certification, Education, Experience, Profile, Project, SkillGroup } fr
 
 export const PROFILE: Profile = {
   name: 'Abin Vinod',
-  headline: 'Data & Business Analyst · Melbourne',
+  headline: 'Data & Business Analyst',
   heroTitle: 'I turn messy data and unclear requirements into decisions.',
   intro:
     'Master of Business Analytics graduate from Deakin, Microsoft-certified Power BI analyst, and ' +
@@ -12,11 +12,12 @@ export const PROFILE: Profile = {
   linkedinUrl: 'https://www.linkedin.com/in/abin-vinod',
   linkedinLabel: 'linkedin.com/in/abin-vinod',
   resumeUrl: 'assets/Abin_Vinod_Resume.pdf',
-  // Update once the 485 application is lodged.
-  workRights:
-    'Currently on a Subclass 500 visa with full working rights, and applying for the Temporary ' +
-    'Graduate visa (subclass 485) in January 2027, which would be valid for 3 years.',
-  relocation: 'Open to relocating within Australia, depending on the offer.',
+  // Short facts shown as chips under the intro. Update the 485 one once it's lodged.
+  availability: [
+    'Subclass 500 · full working rights',
+    'Applying for 485 in Jan 2027 · valid 3 years',
+    'Open to relocating in Australia',
+  ],
 };
 
 export const EXPERIENCE: Experience[] = [

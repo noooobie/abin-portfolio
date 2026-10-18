@@ -9,8 +9,9 @@
     </h1>
     <p class="hero__intro">{{ profile.intro }}</p>
 
-    <p class="work-rights">{{ profile.workRights }}</p>
-    <p class="work-rights work-rights--next">{{ profile.relocation }}</p>
+    <ul class="facts" aria-label="Work rights and availability">
+      <li *ngFor="let fact of profile.availability">{{ fact }}</li>
+    </ul>
 
     <div class="hero__actions">
       <a class="btn btn-primary" routerLink="/" fragment="work">See my work</a>

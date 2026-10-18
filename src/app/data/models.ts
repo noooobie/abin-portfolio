@@ -95,8 +95,6 @@ export interface Profile {
   linkedinUrl: string;
   linkedinLabel: string;
   resumeUrl: string;
-  /** Visa / work-rights line shown under the hero intro. */
-  workRights: string;
-  /** Relocation note shown right after the visa line. */
-  relocation: string;
+  /** Short visa / relocation facts shown as chips under the hero intro. */
+  availability: string[];
 }
