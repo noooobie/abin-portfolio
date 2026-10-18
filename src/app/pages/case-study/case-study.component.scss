@@ -148,6 +148,12 @@
   }
 }
 
+/* Grid items default to min-width: auto, so the 760px swipeable image would
+   stretch the column (and the whole page) past the phone width. */
+.approach > * {
+  min-width: 0;
+}
+
 @media (min-width: 860px) {
   .approach--stacked {
     grid-template-columns: 1fr;
